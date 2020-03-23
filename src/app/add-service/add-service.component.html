@@ -1,31 +1,58 @@
 <div class="mat-card">
-  <div class="card-header card-header-danger">
-      <h4 class="card-title ">Add New Services</h4>
+  <div class="card-header card-header-danger row">
+      <h4 class="card-title col">Add New Services</h4>
+      <button type="button" class="btn btn-danger btnlg btn-raised col-xs-2 float-right" (click)="onClose()" ><i class="fas fa-close"></i>Close</button>    
   </div>
-  <div class="card-body">
-      <div class="">
-          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-              <div class="row">
-                  <div class="col">
-                      <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Service Name" class="form-control" name="service_name" #service_name ="ngModel" 
-                          [(ngModel)]="serviceService.service_name" required maxlength="20" minlength="2"> {{data.service_name}}
-                      </mat-form-field>
-                  </div>
-                  <div class="col">
-                      <mat-form-field class="example-full-width">
-                          <input matInput placeholder="Service ID" class="form-control" name="service_id" #service_id ="ngModel" 
-                          [(ngModel)]="serviceService.service_id" required >{{data.service_id}}
-                      </mat-form-field>
-                  </div>
-              </div>
-              <div class="form-group padding">
-                  <button type="submit" class="btn btn-success btnlg btn-raised float-right " [disabled]="form.invalid"><i class="fas fa-save"></i>Submit</button>
-                  <button type="button" class="btn btn-danger btnlg btn-raised float-right" (click)="onClear(form)" ><i class="fas fa-save"></i>Clear</button>
-              </div>
-          </form>
-      </div>
-  </div>
+  <div class="new-service" *ngIf="data else edit">
+        <div class="card-body"></div>
+        <div class="">
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Service Name" class="form-control" name="service_name" #service_name ="ngModel" 
+                            [(ngModel)]="data.service_name" required maxlength="20" minlength="2">
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Service ID" class="form-control" name="service_id" #service_id ="ngModel" 
+                            [(ngModel)]="data.service_id" required >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group padding">
+                    <button type="submit" class="btn btn-success btnlg btn-raised float-right " [disabled]="form.invalid"><i class="fas fa-save"></i>Submit</button>
+                    <button type="button" class="btn btn-danger btnlg btn-raised float-right" (click)="onClear(form)" ><i class="fas fa-save"></i>Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ng-template #edit>
+        <div class="card-body"></div>
+        <div class="">
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Service Name" class="form-control" name="service_name" #service_name ="ngModel" 
+                            [(ngModel)]="serviceService.service_name" required maxlength="20" minlength="2"> 
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Service ID" class="form-control" name="service_id" #service_id ="ngModel" 
+                            [(ngModel)]="serviceService.service_id" required >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group padding">
+                    <button type="submit" class="btn btn-success btnlg btn-raised float-right " [disabled]="form.invalid"><i class="fas fa-save"></i>Submit</button>
+                    <button type="button" class="btn btn-danger btnlg btn-raised float-right" (click)="onClear(form)" ><i class="fas fa-save"></i>Clear</button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
 </div>
 
 

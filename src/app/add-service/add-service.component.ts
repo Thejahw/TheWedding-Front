@@ -18,7 +18,7 @@ export class AddServiceComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
-    if(form.value.service_id==0)
+    if(!this.data)
       this.insertRecord(form);
     else
       this.updateRecord(form)
@@ -53,8 +53,8 @@ export class AddServiceComponent implements OnInit {
   // form.resetForm();
  }
 
-  onClose(form:NgForm){
-    this.dialogRef.close("Submitted Successfully");
+  onClose(form?:NgForm){
+    this.dialogRef.close();
   }
 
   onClear(form?:NgForm){
