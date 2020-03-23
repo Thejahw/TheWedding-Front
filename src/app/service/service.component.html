@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div>
+          <button class="btn btn-raised btn-danger float-right" type="button" (click)="onCreateNewService()">
+              <span class="mdc-button__label"><i class="material-icons note_add">note_add</i>Add Service</span>
+          </button>
+        </div>
+          
+          <div class="main-content">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="card">
+                                  <div class="card-header card-header-danger">
+                                      <h4 class="card-title ">Services</h4>
+                                      <p class="card-category"> Available Services for the customers</p>
+                                  </div>
+                                  <div class="card-body">
+                                      <div class="table-responsive">
+                                          <table class="table">
+                                              <thead class=" text-primary">
+                                                  <th>
+                                                      ID
+                                                  </th>
+                                                  <th>
+                                                      Service Name
+                                                  </th>
+                                                  <th></th>
+                                              </thead>
+                                              <tbody>
+                                                  <tr *ngFor = 'let service of services'>
+                                                      <td name="id"> 
+                                                            {{service.service_id}} 
+                                                      </td>
+                                                      <td>
+                                                            {{service.service_name}}
+                                                      </td>
+                                                      <!-- <td>
+                                                          <button mat-icon-button><mat-icon>launch</mat-icon></button>
+                                                          <button mat-icon-button color="btn-danger"><mat-icon>delete_outline</mat-icon></button>
+                                                      </td> -->
+                                                      <td>
+                                                          <button mat-raised-button (click)="onEditClick(service)"><i class="material-icons">launch</i></button>
+                                                          <span *ngIf ="confirmdelete">
+                                                              <span>Are you sure you want to delete?</span> 
+                                                              <button class="btn btn-danger" (click)="deleteEmployee(service.service_id)">Yes </button>
+                                                              <button class="btn btn-primary" (click)="confirmdelete=false">No </button>
+                                                          </span>
+                                                          <button mat-raised-button color="btn-danger" (click)="deleteService(service.service_id)"><i class="material-icons btn-danger">delete_outline</i></button>
+                                                      </td>                                    
+                                                  </tr>
+                                                  
+                                              </tbody>
+                                              <tfoot *matFooterCellDef colspan="6">
+                                                  <tr>
+                                                      <td>Loding...</td>
+                                                          
+                                                  </tr>
+                                                  </tfoot>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+      </div>
+  </div>
+  
