@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router:Router) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -65,6 +66,15 @@ export class DashboardComponent implements OnInit {
 
       seq2 = 0;
   };
+  onClickService(){
+    this._router.navigate(['/service'])
+  }
+  onClickPackage(){
+    this._router.navigate(['/package'])
+  }
+  onClickUser(){
+    this._router.navigate(['/user'])
+  }
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 

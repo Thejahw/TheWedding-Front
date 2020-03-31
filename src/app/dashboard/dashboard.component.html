@@ -70,10 +70,16 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-md-4">
+        <!-- <div class="view overlay zoom">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).jpg" class="img-fluid " alt="smaple image">
+            <div class="mask flex-center">
+                <p class="white-text">Zoom effect</p>
+            </div>
+        </div> -->
+          <div class="col-md-4 ">
               <div class="card card-chart">
                   <div class="card-header card-header-success">
-                    <img src="/assets/img/services.jpg"/>
+                    <img src="/assets/img/services.jpg" (click)="onClickService()"/>
                   </div>
                   <div class="card-body">
                       <h4 class="card-title">Services</h4>
@@ -84,7 +90,7 @@
           <div class="col-md-4">
               <div class="card card-chart">
                   <div class="card-header card-header-warning text-center">
-                    <img class="rounded" src="/assets/img/package.jpg"/>
+                    <img class="rounded" src="/assets/img/package.jpg" (click)="onClickPackage()"/>
                   </div>
                   <div class="card-body">
                       <h4 class="card-title">Packages</h4>
@@ -95,7 +101,7 @@
           <div class="col-md-4">
               <div class="card card-chart">
                   <div class="card-header card-header-danger text-center">
-                    <img class='rounded' src="/assets/img/user.png"/>
+                    <img class='rounded' src="/assets/img/user.png" (click)="onClickUser()"/>
                   </div>
                   <div class="card-body">
                       <h4 class="card-title">Users</h4>
