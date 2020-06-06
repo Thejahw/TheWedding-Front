@@ -55,10 +55,11 @@ export class ServiceComponent implements OnInit {
 
  deleteService(id:number){
    this.serviceService.deleteService(id)
-   .subscribe(()=>console.log("service deleted"),
-   (err)=>console.log(err)
-   );
-
+   .subscribe(data=>{
+     console.log("service deleted");
+      location.reload();
+   },err=>{console.log(err)
+  });
  }
 
 }

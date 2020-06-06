@@ -32,7 +32,7 @@ export class ServiceService {
   }
 
   deleteService(id:number):Observable<String>{ 
-   return this.httpClient.delete<String>(this.apibase+'api/deleteservice?id='+id);
+   return this.httpClient.delete(this.apibase+'api/deleteservice?id='+id,{responseType: 'text'});
    // .pipe(catchError(this.handleError));
  
   }
